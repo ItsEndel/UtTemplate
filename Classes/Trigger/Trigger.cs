@@ -9,6 +9,7 @@ public class Trigger : Area2D
     // GD方法
     public override void _Ready()
     {
+        // 获取主节点
         shape = GetNode<CollisionShape2D>("Shape");
     }
 
