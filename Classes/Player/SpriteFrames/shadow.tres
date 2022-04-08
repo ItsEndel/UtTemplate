@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharad_shadow_2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharad_shadow_3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharad_shadow_0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharal_shadow_0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharad_shadow_1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharau_shadow_1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharau_shadow_0.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharau_shadow_2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharal_shadow_1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharar_shadow_1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharau_shadow_3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Characters/Frisk/spr_maincharar_shadow_0.png" type="Texture" id=12]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.5
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.5
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.5
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.5
+} ]
