@@ -1,0 +1,9 @@
+E:\Github\UtTemplate\.mono\temp\bin\ExportDebug\UtTemplate.dll
+E:\Github\UtTemplate\.mono\temp\bin\ExportDebug\UtTemplate.pdb
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.csproj.AssemblyReference.cache
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.GeneratedMSBuildEditorConfig.editorconfig
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.AssemblyInfoInputs.cache
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.AssemblyInfo.cs
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.csproj.CoreCompileInputs.cache
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.dll
+E:\Github\UtTemplate\.mono\temp\obj\ExportDebug\UtTemplate.pdb
