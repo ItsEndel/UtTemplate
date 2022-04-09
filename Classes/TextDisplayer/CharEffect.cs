@@ -1,7 +1,12 @@
-public abstract class CharEffect {
+using Godot;
+
+public abstract class CharEffect : Node
+{
     // 属性
     protected Char EffectingChar;
 
-    // 更新方法
-    public virtual void Update() {}
+    public interface Builder
+    {
+        CharEffect Build(Char effectingChar);
+    }
 }
