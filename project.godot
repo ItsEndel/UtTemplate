@@ -22,7 +22,6 @@ config/windows_native_icon="res://icon.ico"
 
 [debug]
 
-settings/fps/force_fps=30
 shapes/collision/shape_color=Color( 0, 0.6, 0.701961, 0.419608 )
 
 [display]
