@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voc_sans.wav-1cacf78989dcd0782ff6a131efda0286.sample"
+
+[deps]
+
+source_file="res://Assets/Audios/Voice/voc_sans.wav"
+dest_files=[ "res://.import/voc_sans.wav-1cacf78989dcd0782ff6a131efda0286.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

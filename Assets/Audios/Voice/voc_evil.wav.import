@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voc_evil.wav-d9391cc1d199f3b428f9b6639997b9a2.sample"
+
+[deps]
+
+source_file="res://Assets/Audios/Voice/voc_evil.wav"
+dest_files=[ "res://.import/voc_evil.wav-d9391cc1d199f3b428f9b6639997b9a2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
