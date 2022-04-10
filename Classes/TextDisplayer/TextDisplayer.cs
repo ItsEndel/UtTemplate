@@ -5,13 +5,16 @@ using System.Collections.Generic;
 public class TextDisplayer : Node2D
 {
     // 构造器
-    public TextDisplayer(string text = "", float interval = 0.2f, int textSize = 16, float textSpace = 18, float lineSpace = 8)
+    public TextDisplayer(string text = "", float interval = 0.2f, int textSize = 16, float fullTextSpace = 18, float halfTextSpace = 10, float lineSpace = 8, string fullFont = "Menu Chinese.TTF", string halfFont = "Menu.otf")
     {
         this._text = text;
         this._interval = interval;
         this._textSize = textSize;
-        this._textSpace = textSpace;
         this._lineSpace = lineSpace;
+        this._fullTextSpace = fullTextSpace;
+        this._halfTextSpace = halfTextSpace;
+        this._fullFont = Game.GetFont(fullFont);
+        this._halfFont = Game.GetFont(halfFont);
 
         _timer.WaitTime = _interval;
         _timer.Start();
@@ -57,16 +60,23 @@ public class TextDisplayer : Node2D
     private string _text; // 将显示的文本
     private int _printingIndex = 0; // 下个将被打印的字符的索引
     private float _interval; // 打印时间间隔
+    private Color _textColor; // 字符颜色
+    private int _outlineSize; // 轮廓线厚度
+    private Color _outlineColor; // 轮廓线颜色
     private int _textSize; // 字符尺寸
     private Vector2 _printingPos = new Vector2(0, 0); // 打印位置
-    private float _textSpace; // 字间距
     private float _lineSpace; // 行间距
+    private float _fullTextSpace; // 全角字间距
+    private float _halfTextSpace; // 半角字间距
+    private DynamicFont _fullFont; // 全角字体
+    private DynamicFont _halfFont; // 半角字体
     private List<CharEffect.Builder> _effects = new List<CharEffect.Builder>(); // 字符效果
 
     //// 特殊文本格式
     private bool _escape = false; // 转义（\）
     private bool _inBracket = false; // 读取参数名（[）
     private bool _afterEqual = false; // 读取参数值（=）
+    private bool  _skipping = false; // 跳过打印间隔（!）
     private string _paramName = ""; // 参数名
     private string _paramValue = ""; // 参数值
 
@@ -143,31 +153,37 @@ public class TextDisplayer : Node2D
             }
             else if (_escape)
             {
-                Print(chr);
+                Print(NewChar(chr));
                 _escape = false;
             }
             else
             {
                 switch (chr)
                 {
-                    case '\\':
-                        { // 转义
+                    case '\\': // 转义
+                        {
                             _escape = true;
                             Next();
                             break;
                         }
-                    case '[':
-                        { // 参数
+                    case '[': // 参数
+                        {
                             _inBracket = true;
                             _paramName = "";
                             _paramValue = "";
                             Next();
                             break;
                         }
+                    case '!': // 跳过
+                        {
+                            _skipping = !_skipping;
+                            Next();
+                            break;
+                        }
                     default:
                         {
-                            Print(chr);
-                            if (_interval <= 0)
+                            Print(NewChar(chr));
+                            if (chr == '\n' || _skipping || _interval <= 0)
                             {
                                 Next();
                             }
@@ -217,8 +233,27 @@ public class TextDisplayer : Node2D
     }
 
     // 打印字符
-    private void Print(char chr)
+    private Char NewChar(char chr) {
+        bool isHalf = Game.IsHalf(chr);
+
+        Char newChar = new Char(chr);
+
+        newChar.AddColorOverride("font_color", _textColor);
+        DynamicFont font = (DynamicFont)(Game.IsHalf(chr) ? _halfFont : _fullFont);
+        font.Size = _textSize;
+        font.OutlineSize = _outlineSize;
+        font.OutlineColor = _outlineColor;
+        newChar.AddFontOverride("font", font);
+
+        return newChar;
+    }
+    private void Print(Char chr)
     {
-        GD.Print(chr);
+        _printedChars.Add(chr);
+
+        _printingPos.x += Game.IsHalf(chr._Char) ? _halfTextSpace : _fullTextSpace;
+        chr.RectPosition = _printingPos;
+
+        AddChild(chr);
     }
 }
