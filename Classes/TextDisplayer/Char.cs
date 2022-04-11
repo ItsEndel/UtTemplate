@@ -12,7 +12,7 @@ public class Char : Label
     // 属性
     public char _Char {
         get {
-            return _Char;
+            return _char;
         }
     }
     private char _char;

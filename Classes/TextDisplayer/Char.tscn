@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Classes/TextDisplayer/Char.cs" type="Script" id=1]
-
-[node name="Char" type="Label"]
-margin_right = 16.0
-margin_bottom = 16.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-script = ExtResource( 1 )
