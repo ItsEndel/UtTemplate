@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public class TextDisplayer : Node2D
+public class TextDisplayer : Control
 {
+    // 信号
+    [Signal] delegate void finished();
+
     // 构造器
     public TextDisplayer(string text = "")
     {
@@ -13,9 +16,10 @@ public class TextDisplayer : Node2D
         this._halfFont = Game.GetFont("Menu.otf");
         this._voice = Game.GetAudio("Voice/voc_chara.wav");
     }
-    public TextDisplayer(string text = "", float interval = 0.1f, int textSize = 16, float fullCharSpace = 18f, float halfCharSpace = 10f, float lineSpace = 18f, string fullFont = "Menu Chinese.TTF", string halfFont = "Menu.otf", string voice = "Voice/voc_chara.wav")
+    public TextDisplayer(string text = "", bool skippable = true, float interval = 0.1f, int textSize = 16, float fullCharSpace = 18f, float halfCharSpace = 10f, float lineSpace = 18f, string fullFont = "Menu Chinese.TTF", string halfFont = "Menu.otf", string voice = "Voice/voc_chara.wav")
     {
         this._text = text;
+        this._skippable = skippable;
         this._interval = interval;
         this._textSize = textSize;
         this._lineSpace = lineSpace;
@@ -30,7 +34,8 @@ public class TextDisplayer : Node2D
     }
 
     // 主节点
-    private Timer _timer;
+    Timer _timer = new Timer();
+
     // 属性
     public bool Paused
     {
@@ -64,6 +69,8 @@ public class TextDisplayer : Node2D
         }
     }
     private bool _finished = false;
+    private bool _skippable = true;
+    private bool _skip = false;
     //// 打印属性
     private List<Char> _printedChars = new List<Char>(); // 已打印的字符
     private string _text; // 将显示的文本
@@ -95,16 +102,25 @@ public class TextDisplayer : Node2D
     // GD方法
     public override void _Ready()
     {
-        // 获取主节点
-        _timer = new Timer();
+        // 创建主节点
         AddChild(_timer);
 
         // 连接计时器超时
-        _timer.Connect("timeout", this, "Timeout");
+        _timer.Connect("timeout", this, nameof(Timeout));
 
         // 开始计时器
         _timer.WaitTime = _interval;
         _timer.Start();
+    }
+
+    public override void _Process(float delta)
+    {
+        // 跳过
+        if (_skippable) {
+            if (Input.IsActionJustPressed("movement_cancel")) {
+                _skip = !_skip;
+            }
+        }
     }
 
     // 计时器超时
@@ -124,6 +140,7 @@ public class TextDisplayer : Node2D
             if (_printingIndex >= _text.Length)
             {
                 _finished = true;
+                EmitSignal(nameof(finished));
             }
             if (_inBracket)
             {
@@ -204,7 +221,7 @@ public class TextDisplayer : Node2D
                     default:
                         {
                             Print(NewChar(chr));
-                            if (_skipping || _interval <= 0)
+                            if (_skip || _skipping || _interval <= 0)
                             {
                                 Next();
                             }
@@ -219,13 +236,47 @@ public class TextDisplayer : Node2D
     // 应用参数
     private void Param(string name, string value)
     {
-        GD.Print(name + " " + value);
         switch (name)
         {
+            case "theme":
+                {
+                    switch (value) {
+                        case "menu":
+                            {
+                                _textSize = 24;
+                                _halfOffset = new Vector2(0, -1);
+                                _lineSpace = 27f;
+                                _fullCharSpace = 27f;
+                                _halfCharSpace = 15f;
+                                _fullFont = Game.GetFont("Menu Chinese.TTF");
+                                _halfFont = Game.GetFont("Menu.otf");
+                                _voice = Game.GetAudio("Voice/voc_chara.wav");
+                                break;
+                            }
+                        case "sans_dialog":
+                            {
+                                _textSize = 24;
+                                _halfOffset = new Vector2(0, 2);
+                                _lineSpace = 27f;
+                                _fullCharSpace = 24f;
+                                _halfCharSpace = 12f;
+                                _fullFont = Game.GetFont("Sans Chinese.TTF");
+                                _halfFont = Game.GetFont("Sans Pixelated.ttf");
+                                _voice = Game.GetAudio("Voice/voc_sans.wav");
+                                break;
+                            }
+                    }
+                    break;
+                }
             case "wait":
                 {
                     _timer.WaitTime = (float)Convert.ToDouble(value);
                     _timer.Start();
+                    break;
+                }
+            case "skippable":
+                {
+                    _skippable = Convert.ToBoolean(value);
                     break;
                 }
             case "interval":
@@ -421,11 +472,11 @@ public class TextDisplayer : Node2D
             _printingPos.x += _fullCharSpace;
         }
 
-        if (_voice != null && chr._Char != ' ')
+        AddChild(chr);
+
+        if (!_skip && _voice != null && chr._Char != ' ')
         {
             Game.MainScene.PlaySound(_voice);
         }
-
-        AddChild(chr);
     }
 }
