@@ -14,9 +14,10 @@ public class TestRoom : Room
         _player.SetSkin("shadow");
     }
 
-    public override void _Process(float delta)
+    // 镜头跟随
+    protected override void CameraFollow()
     {
-        base._Process(delta);
+        _camera.Position = new Vector2(Mathf.Clamp(_player.Position.x, 320, 2480), 240);
         // 前景跟随
         _foreground.Position = new Vector2((_camera.Position.x - 320) * -1f, 0);
     }

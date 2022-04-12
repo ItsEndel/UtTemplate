@@ -25,7 +25,12 @@ public class Room : Node
     {
         // 镜头跟随
         if (!cameraLocked) {
-            _camera.Position = _player.Position;
+            CameraFollow();
         }
+    }
+
+    // 镜头跟随
+    protected virtual void CameraFollow() {
+        _camera.Position = _player.Position;
     }
 }
