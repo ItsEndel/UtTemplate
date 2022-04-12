@@ -102,7 +102,7 @@ public class Player : KinematicBody2D
         // 玩家互动
         _trigger.Disable();
         if (CanInteract) {
-            if (Input.IsActionJustPressed("movement_interact")) {
+            if (Input.IsActionJustPressed("movement_select")) {
                 _trigger.Enable();
             }
         }
