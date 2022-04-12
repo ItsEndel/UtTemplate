@@ -8,6 +8,7 @@ public static class Game {
     public static DynamicFont GetFont(string fontName) {
         DynamicFont font = new DynamicFont();
         DynamicFontData fontData = GD.Load<DynamicFontData>("res://Assets/Fonts/" + fontName);
+        fontData.Antialiased = false;
         font.FontData = fontData;
 
         return font;
