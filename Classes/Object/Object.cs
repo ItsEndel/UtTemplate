@@ -13,11 +13,9 @@ public class Object : Node2D
         trigger = GetNode<Trigger>("Trigger");
 
         // 连接目标触发方法
-        trigger.Connect("area_entered", this, "triggered");
+        trigger.Connect("area_entered", this, nameof(triggered));
     }
 
     // 目标触发方法
-    public virtual void triggered(Area2D area) {
-
-    }
+    public virtual void triggered(Area2D area) {}
 }
