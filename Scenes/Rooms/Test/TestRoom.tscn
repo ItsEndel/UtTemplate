@@ -10,9 +10,7 @@
 script = ExtResource( 2 )
 
 [node name="Camera" parent="." index="0"]
-position = Vector2( 320, 240 )
 limit_right = 2800
-limit_bottom = 480
 
 [node name="Layer1" parent="Maps" index="0"]
 tile_set = ExtResource( 1 )
