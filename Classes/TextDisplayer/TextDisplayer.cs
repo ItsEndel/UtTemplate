@@ -16,7 +16,7 @@ public class TextDisplayer : Control
         this._halfFont = Game.GetFont("Menu.otf");
         this._voice = Game.GetAudio("Voice/voc_chara.wav");
     }
-    public TextDisplayer(string text = "", bool skippable = true, float interval = 0.1f, int textSize = 16, float fullCharSpace = 18f, float halfCharSpace = 10f, float lineSpace = 18f, string fullFont = "Menu Chinese.TTF", string halfFont = "Menu.otf", string voice = "Voice/voc_chara.wav")
+    public TextDisplayer(string text = "", bool skippable = true, float interval = 0.1f, int textSize = 12, float fullCharSpace = 14f, float halfCharSpace = 8f, float lineSpace = 14f, string fullFont = "Menu Chinese.TTF", string halfFont = "Menu.otf", string voice = "Voice/voc_chara.wav")
     {
         this._text = text;
         this._skippable = skippable;
@@ -79,12 +79,12 @@ public class TextDisplayer : Control
     private Color _textColor = new Color(1, 1, 1); // 字符颜色
     private int _outlineSize = 0; // 轮廓线厚度
     private Color _outlineColor = new Color(0, 0, 0); // 轮廓线颜色
-    private int _textSize = 16; // 字符尺寸
+    private int _textSize = 12; // 字符尺寸
     private Vector2 _printingPos = new Vector2(0, 0); // 打印位置
-    private Vector2 _halfOffset = new Vector2(0, -1); // 半角字符位置补正
-    private float _lineSpace = 18f; // 行间距
-    private float _fullCharSpace = 18f; // 全角字间距
-    private float _halfCharSpace = 10f; // 半角字间距
+    private Vector2 _halfOffset = new Vector2(0, 0); // 半角字符位置补正
+    private float _lineSpace = 14f; // 行间距
+    private float _fullCharSpace = 14f; // 全角字间距
+    private float _halfCharSpace = 8f; // 半角字间距
     private DynamicFont _fullFont; // 全角字体
     private DynamicFont _halfFont; // 半角字体
     private List<CharEffect.Builder> _effects = new List<CharEffect.Builder>(); // 字符效果
