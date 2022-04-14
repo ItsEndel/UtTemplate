@@ -5,6 +5,7 @@ public class Room : Node2D
 {
     // 主节点
     protected Camera2D _camera;
+    protected CanvasModulate _modulate;
     protected Node _maps;
     protected Node _objects;
     protected Player _player;
@@ -21,6 +22,7 @@ public class Room : Node2D
     public override void _Ready() {
         // 获取主节点
         _camera = GetNode<Camera2D>("Camera");
+        _modulate = GetNode<CanvasModulate>("Modulate");
         _maps = GetNode<Node>("Maps");
         _objects = GetNode<Node>("Objects");
         _player = GetNode<Player>("Player");
@@ -57,35 +59,35 @@ public class Room : Node2D
 
     // 切换场景
     protected void EnterRoom() {
-        this.Modulate = new Color(0, 0, 0, 1);
+        _modulate.Color = new Color(0, 0, 0, 1);
         _sceneAnimation = 1;
         _sceneTimer = 0;
     }
     protected void ExitRoom(PackedScene enteringScene) {
-        this.Modulate = new Color(1, 1, 1, 1);
+        _modulate.Color = new Color(1, 1, 1, 1);
         _sceneAnimation = 2;
         _sceneTimer = 0;
         _enteringScene = enteringScene;
     }
     protected void RoomEnterAnimation(float delta) {
-        _sceneTimer += delta;
+        _sceneTimer += delta / 0.5f;
 
         if (_sceneTimer > 1) {
-            this.Modulate = new Color(1, 1, 1, 1);
+            _modulate.Color = new Color(1, 1, 1, 1);
             _sceneAnimation = 0;
         } else {
-            this.Modulate = new Color(0, 0, 0, 1).LinearInterpolate(new Color(1, 1, 1, 1), _sceneTimer);
+            _modulate.Color = new Color(0, 0, 0, 1).LinearInterpolate(new Color(1, 1, 1, 1), _sceneTimer);
         }
     }
     protected void RoomExitAnimation(float delta) {
-        _sceneTimer += delta;
+        _sceneTimer += delta / 0.5f;
 
         if (_sceneTimer > 1) {
-            this.Modulate = new Color(0, 0, 0, 1);
+            _modulate.Color = new Color(0, 0, 0, 1);
             _sceneAnimation = 0;
             Game.MainScene.SetScene(_enteringScene);
         } else {
-            this.Modulate = new Color(1, 1, 1, 1).LinearInterpolate(new Color(0, 0, 0, 1), _sceneTimer);
+            _modulate.Color = new Color(1, 1, 1, 1).LinearInterpolate(new Color(0, 0, 0, 1), _sceneTimer);
         }
     }
 }
