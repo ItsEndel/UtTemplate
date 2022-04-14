@@ -270,7 +270,7 @@ public class TextDisplayer : Control
                 }
             case "wait":
                 {
-                    _timer.WaitTime = (float)Convert.ToDouble(value);
+                    _timer.WaitTime = Convert.ToSingle(value);
                     _timer.Start();
                     break;
                 }
@@ -281,7 +281,7 @@ public class TextDisplayer : Control
                 }
             case "interval":
                 {
-                    _interval = (float)Convert.ToDouble(value);
+                    _interval = Convert.ToSingle(value);
                     _timer.WaitTime = _interval;
                     _timer.Start();
                     break;
@@ -289,10 +289,10 @@ public class TextDisplayer : Control
             case "color":
                 {
                     Match match = RegExp.ColorParam.Match(value);
-                    float r = (float)Convert.ToDouble(match.Groups[1].Value);
-                    float g = (float)Convert.ToDouble(match.Groups[2].Value);
-                    float b = (float)Convert.ToDouble(match.Groups[3].Value);
-                    float a = (float)Convert.ToDouble(match.Groups[4].Value);
+                    float r = Convert.ToSingle(match.Groups[1].Value);
+                    float g = Convert.ToSingle(match.Groups[2].Value);
+                    float b = Convert.ToSingle(match.Groups[3].Value);
+                    float a = Convert.ToSingle(match.Groups[4].Value);
 
                     _textColor = new Color(r, g, b, a);
 
@@ -309,10 +309,10 @@ public class TextDisplayer : Control
             case "outline_color":
                 {
                     Match match = RegExp.ColorParam.Match(value);
-                    float r = (float)Convert.ToDouble(match.Groups[1].Value);
-                    float g = (float)Convert.ToDouble(match.Groups[2].Value);
-                    float b = (float)Convert.ToDouble(match.Groups[3].Value);
-                    float a = (float)Convert.ToDouble(match.Groups[4].Value);
+                    float r = Convert.ToSingle(match.Groups[1].Value);
+                    float g = Convert.ToSingle(match.Groups[2].Value);
+                    float b = Convert.ToSingle(match.Groups[3].Value);
+                    float a = Convert.ToSingle(match.Groups[4].Value);
 
                     _outlineColor = new Color(r, g, b, a);
 
@@ -329,8 +329,8 @@ public class TextDisplayer : Control
             case "position":
                 {
                     Match match = RegExp.Vector2Param.Match(value);
-                    float x = (float)Convert.ToDouble(match.Groups[1].Value);
-                    float y = (float)Convert.ToDouble(match.Groups[2].Value);
+                    float x = Convert.ToSingle(match.Groups[1].Value);
+                    float y = Convert.ToSingle(match.Groups[2].Value);
 
                     _printingPos = new Vector2(x, y);
 
@@ -340,8 +340,8 @@ public class TextDisplayer : Control
             case "half_offset":
                 {
                     Match match = RegExp.Vector2Param.Match(value);
-                    float x = (float)Convert.ToDouble(match.Groups[1].Value);
-                    float y = (float)Convert.ToDouble(match.Groups[2].Value);
+                    float x = Convert.ToSingle(match.Groups[1].Value);
+                    float y = Convert.ToSingle(match.Groups[2].Value);
 
                     _halfOffset = new Vector2(x, y);
 
@@ -350,21 +350,21 @@ public class TextDisplayer : Control
                 }
             case "line_space":
                 {
-                    _lineSpace = (float)Convert.ToDouble(value);
+                    _lineSpace = Convert.ToSingle(value);
 
                     Next();
                     break;
                 }
             case "full_char_space":
                 {
-                    _fullCharSpace = (float)Convert.ToDouble(value);
+                    _fullCharSpace = Convert.ToSingle(value);
 
                     Next();
                     break;
                 }
             case "half_char_space":
                 {
-                    _halfCharSpace = (float)Convert.ToDouble(value);
+                    _halfCharSpace = Convert.ToSingle(value);
 
                     Next();
                     break;
@@ -398,15 +398,15 @@ public class TextDisplayer : Control
                     float maxAmplitude = 5f;
                     if (match.Groups[2].Value != "")
                     {
-                        frequency = (float)Convert.ToDouble(match.Groups[2].Value);
+                        frequency = Convert.ToSingle(match.Groups[2].Value);
                     }
                     if (match.Groups[4].Value != "")
                     {
-                        amplitude = (float)Convert.ToDouble(match.Groups[4].Value);
+                        amplitude = Convert.ToSingle(match.Groups[4].Value);
                     }
                     if (match.Groups[6].Value != "")
                     {
-                        maxAmplitude = (float)Convert.ToDouble(match.Groups[6].Value);
+                        maxAmplitude = Convert.ToSingle(match.Groups[6].Value);
                     }
 
                     ShakingEffect.Builder effect = new ShakingEffect.Builder(frequency, amplitude, maxAmplitude);
