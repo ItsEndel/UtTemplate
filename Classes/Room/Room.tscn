@@ -13,6 +13,8 @@ limit_left = 0
 limit_top = 0
 editor_draw_limits = true
 
+[node name="Modulate" type="CanvasModulate" parent="."]
+
 [node name="Maps" type="Node2D" parent="."]
 
 [node name="Layer1" type="TileMap" parent="Maps"]
