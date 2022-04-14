@@ -17,7 +17,8 @@ public class test : Node2D
         text = text + "测 试 测 试 TesT tESt";
         text = text + "\n换行测试";
         text = text + "\n延迟[wait=1]测试";
-        text = text + "\n[size=24][line_space=27][full_char_space=27][half_char_space=15]尺寸测试";
+        text = text + "\n[size=24][line_space=27][full_char_space=27][half_char_space=15][half_offset=(0, -1)]尺寸测试 TEST test";
+        text = text + "\n[size=36][line_space=40][full_char_space=40][half_char_space=22][half_offset=(0, 0)]尺寸测试 TEST test";
         text = text + "\n[color=(1, 0, 0, 1)]C[color=(0, 1, 0, 1)]O[color=(0, 1, 0, 1)]L[color=(1, 1, 0, 1)]O[color=(0, 1, 1, 1)]R[color=(1, 1, 1, 1)]";
         text = text + "\n[outline_size=2][outline_color=(1, 0, 0, 1)]OUTLINE TEST 轮廓线测试[outline_size=0]";
         text = text + "\n[shake=()]default shake[/shake=]";
