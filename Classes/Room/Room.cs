@@ -11,6 +11,13 @@ public class Room : Node2D
     protected Player _player;
 
     // 属性
+    public string RoomName {
+        get {
+            return _name;
+        }
+    }
+    protected string _name = "";
+    //// 场景设定
     protected bool _cameraLocked = false;
 
     // 场景动画
