@@ -107,6 +107,8 @@ movement_cancel={
 
 [layer_names]
 
+2d_render/layer_1="default"
+2d_render/layer_2="frame"
 2d_physics/layer_1="Room.Player"
 2d_physics/layer_2="Room.Trigger"
 
