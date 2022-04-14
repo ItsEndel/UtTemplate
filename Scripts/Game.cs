@@ -4,7 +4,11 @@ public static class Game {
     // 主场景节点
     public static Main MainScene;
 
-    // 获取字体
+    // 玩家存档
+    public static PlayerSave Player;
+
+    // 资源方法
+    //// 获取字体资源
     public static DynamicFont GetFont(string fontName) {
         DynamicFont font = new DynamicFont();
         DynamicFontData fontData = GD.Load<DynamicFontData>("res://Assets/Fonts/" + fontName);
@@ -13,8 +17,7 @@ public static class Game {
 
         return font;
     }
-
-    // 获取音频
+    //// 获取音频资源
     public static AudioStream GetAudio(string audioName) {
         return GD.Load<AudioStream>("res://Assets/Audios/" + audioName);
     }
