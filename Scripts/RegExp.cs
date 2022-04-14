@@ -9,7 +9,7 @@ public static class RegExp {
 
     // x = Group1
     // y = Group2
-    public static Regex Vector2Param = new Regex("\\( *([\\d\\.]+) *, *([\\d\\.]+) *\\)");
+    public static Regex Vector2Param = new Regex("\\( *(\\-?[\\d\\.]+) *, *(\\-?[\\d\\.]+) *\\)");
 
     // frequency = Group2
     // amplitude = Group4
