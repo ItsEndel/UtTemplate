@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/TileSets/LastCorridor.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Rooms/Test/TestRoom.cs" type="Script" id=2]
 [ext_resource path="res://Classes/Room/Room.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Savepoint/Savepoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Rooms/Test/test.cs" type="Script" id=5]
+[ext_resource path="res://Objects/Chest/Chest.tscn" type="PackedScene" id=6]
 
 [node name="Room" instance=ExtResource( 3 )]
 script = ExtResource( 2 )
@@ -56,6 +57,10 @@ tile_data = PoolIntArray( 20, 16, 0, 43, 16, 0, 66, 16, 0, 89, 16, 0, 112, 16, 0
 
 [node name="Savepoint" parent="Objects" index="0" instance=ExtResource( 4 )]
 position = Vector2( 240, 340 )
+z_index = 340
+
+[node name="Chest" parent="Objects" index="1" instance=ExtResource( 6 )]
+position = Vector2( 340, 340 )
 z_index = 340
 
 [node name="Player" parent="." index="3"]
