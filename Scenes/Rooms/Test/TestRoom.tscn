@@ -63,9 +63,9 @@ z_index = 340
 position = Vector2( 340, 340 )
 z_index = 340
 
-[node name="Player" parent="." index="3"]
+[node name="Player" parent="." index="4"]
 position = Vector2( 320, 240 )
 
-[node name="Node2D" type="Node2D" parent="." index="4"]
+[node name="Node2D" type="Node2D" parent="." index="5"]
 z_index = 640
 script = ExtResource( 5 )
