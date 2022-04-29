@@ -7,7 +7,7 @@ public class Boarder : Node2D
     private LightOccluder2D _lightOccluder;
     private Polygon2D _background;
     private Line2D _frame;
-    private List<Frame> _frames;
+    private List<Frame> _frames = new List<Frame>{};
 
     // 属性
     public Vector2[] Polygon 
@@ -86,9 +86,9 @@ public class Boarder : Node2D
 
     // 生成碰撞节点方法
     private Frame newFrame(Vector2 from, Vector2 to) {
-        Frame frame = new Frame(from.DistanceTo(to));
+        Frame frame = new Frame(from.DistanceTo(to) / 2);
         frame.Position = from.LinearInterpolate(to, 0.5f);
-        frame.RotationDegrees = from.AngleToPoint(to);
+        frame.Rotation = from.AngleToPoint(to);
 
         _frames.Add(frame);
         AddChild(frame);

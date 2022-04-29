@@ -11,6 +11,9 @@ public class Frame : StaticBody2D
 
         // 设置碰撞形状
         this._shape.Shape = shape;
+
+        // 创建节点
+        AddChild(_shape);
     }
 
     // 主节点
