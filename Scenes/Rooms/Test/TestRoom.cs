@@ -5,6 +5,10 @@ public class TestRoom : Room
 {
     // 主节点
     private Node2D _mapForeground;
+
+    // 属性
+    private new string _name = "Test";
+
     //x=1820
 
     public override void _Ready()
