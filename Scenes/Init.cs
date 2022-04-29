@@ -14,7 +14,7 @@ public class Init : Node
     {
         _timer += delta;
 
-        if (_timer > 2) {
+        if (_timer > 2 || Input.IsActionJustPressed("movement_select")) {
             Game.MainScene.SetScene(_launchScene);
         }
     }
