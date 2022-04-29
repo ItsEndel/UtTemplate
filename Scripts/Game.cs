@@ -26,4 +26,20 @@ public static class Game {
     public static bool IsHalf(char chr) {
         return (chr > 31 && chr < 127);
     }
+
+    // 获取数字符号
+    public static int GetSymbol(int num) {
+        if (num == 0) {
+            return 0;
+        } else {
+            return num / Mathf.Abs(num);
+        }
+    }
+    public static float GetSymbol(float num) {
+        if (num == 0) {
+            return 0;
+        } else {
+            return num / Mathf.Abs(num);
+        }
+    }
 }
