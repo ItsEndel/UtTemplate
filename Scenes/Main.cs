@@ -15,8 +15,8 @@ public class Main : Node
     public override void _Ready()
     {
         // 获取主节点
-        _bgm = GetNode("BGM") as AudioStreamPlayer;
-        _sounds = GetNode("Sounds") as Node;
+        _bgm = GetNode<AudioStreamPlayer>("BGM");
+        _sounds = GetNode<Node>("Sounds");
         // 初始化
         Game.MainScene = this; // 设置主场景
         GD.Randomize(); // 初始化随机数种子

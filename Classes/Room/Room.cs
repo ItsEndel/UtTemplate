@@ -28,11 +28,11 @@ public class Room : Node2D
     // GD方法
     public override void _Ready() {
         // 获取主节点
-        _camera = GetNode("Camera") as Camera2D;
-        _modulate = GetNode("Modulate") as CanvasModulate;
-        _maps = GetNode("Maps") as Node;
-        _objects = GetNode("Objects") as Node;
-        _player = GetNode("Player") as Player;
+        _camera = GetNode<Camera2D>("Camera");
+        _modulate = GetNode<CanvasModulate>("Modulate");
+        _maps = GetNode<Node>("Maps");
+        _objects = GetNode<Node>("Objects");
+        _player = GetNode<Player>("Player");
 
         // 播放房间进入动画
         EnterRoom();

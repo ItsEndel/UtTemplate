@@ -30,9 +30,9 @@ public class Boarder : Node2D
     public override void _Ready()
     {
         // 获取子节点
-        _lightOccluder = GetNode("LightOccluder") as LightOccluder2D;
-        _background = GetNode("Background") as Polygon2D;
-        _frame = GetNode("Frame") as Line2D;
+        _lightOccluder = GetNode<LightOccluder2D>("LightOccluder");
+        _background = GetNode<Polygon2D>("Background");
+        _frame = GetNode<Line2D>("Frame");
 
         // 更新多边形
         updatePolygon();

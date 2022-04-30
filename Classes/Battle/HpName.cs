@@ -15,12 +15,12 @@ public class HpName : Control
     public override void _Ready()
     {
         // 获取子节点
-        _name = GetNode("Name") as Label;
-        _hpNum = GetNode("HpNum") as Label;
-        _hp = GetNode("Hp") as TextureRect;
-        _kr = GetNode("Kr") as TextureRect;
-        _hpBar = GetNode("HpBar") as TextureProgress;
-        _hpOver = GetNode("HpBar/HpOver") as TextureProgress;
+        _name = GetNode<Label>("Name");
+        _hpNum = GetNode<Label>("HpNum");
+        _hp = GetNode<TextureRect>("Hp");
+        _kr = GetNode<TextureRect>("Kr");
+        _hpBar = GetNode<TextureProgress>("HpBar");
+        _hpOver = GetNode<TextureProgress>("HpBar/HpOver");
     }
 
     // 设置方法

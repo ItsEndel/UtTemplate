@@ -4,12 +4,7 @@ using System;
 public class BattleMenu : Node2D
 {
     // 主节点
-    public BattleButtons Buttons {
-        get {
-            return _buttons;
-        }
-    }
-    private BattleButtons _buttons;
+    private Buttons _buttons;
     private HpName _hpName;
     private TextDisplayer _printer;
 
@@ -17,8 +12,8 @@ public class BattleMenu : Node2D
     public override void _Ready()
     {
         // 获取主节点
-        _buttons = GetNode("Buttons") as BattleButtons;
-        _hpName = GetNode("HpName") as HpName;
+        _buttons = GetNode<Buttons>("Buttons");
+        _hpName = GetNode<HpName>("HpName");
     }
 
     // 打印方法

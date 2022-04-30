@@ -15,7 +15,7 @@ public class TestRoom : Room
     {
         base._Ready();
         // 获取主节点
-        _mapForeground = _maps.GetNode("Foreground") as Node2D;
+        _mapForeground = _maps.GetNode<Node2D>("Foreground");
         _player.SetSkin("shadow");
         // 播放背景音乐
         Game.MainScene.SetBGM(Game.GetAudio("Music/mus_wind.ogg"));
