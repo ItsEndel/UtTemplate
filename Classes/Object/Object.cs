@@ -10,7 +10,7 @@ public class Object : Node2D
     public override void _Ready()
     {
         // 获取主节点
-        trigger = GetNode<Trigger>("Trigger");
+        trigger = GetNode("Trigger") as Trigger;
 
         // 连接目标触发方法
         trigger.Connect("area_entered", this, nameof(triggered));

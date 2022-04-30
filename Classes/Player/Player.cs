@@ -39,9 +39,9 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         // 获取主节点
-        _shape = GetNode<CollisionShape2D>("Shape");
-        _sprite = GetNode<AnimatedSprite>("Sprite");
-        _trigger = GetNode<Trigger>("Trigger");
+        _shape = GetNode("Shape") as CollisionShape2D;
+        _sprite = GetNode("Sprite") as AnimatedSprite;
+        _trigger = GetNode("Trigger") as Trigger;
     }
 
     public override void _Process(float delta)

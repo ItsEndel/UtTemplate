@@ -10,7 +10,7 @@ public class Trigger : Area2D
     public override void _Ready()
     {
         // 获取主节点
-        shape = GetNode<CollisionShape2D>("Shape");
+        shape = GetNode("Shape") as CollisionShape2D;
     }
 
     // 互动器方法
