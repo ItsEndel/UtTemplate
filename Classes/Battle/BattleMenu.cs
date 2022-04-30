@@ -4,7 +4,7 @@ using System;
 public class BattleMenu : Node2D
 {
     // 主节点
-    private Buttons _buttons;
+    private BattleButtons _buttons;
     private HpName _hpName;
     private TextDisplayer _printer;
 
@@ -12,7 +12,7 @@ public class BattleMenu : Node2D
     public override void _Ready()
     {
         // 获取主节点
-        _buttons = GetNode<Buttons>("Buttons");
+        _buttons = GetNode<BattleButtons>("Buttons");
         _hpName = GetNode<HpName>("HpName");
     }
 
