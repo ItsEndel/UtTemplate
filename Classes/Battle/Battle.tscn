@@ -17,7 +17,7 @@
 [ext_resource path="res://Assets/Fonts/HpName.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://Classes/Battle/HpName.cs" type="Script" id=16]
 [ext_resource path="res://Classes/Battle/Battle.cs" type="Script" id=17]
-[ext_resource path="res://Classes/Battle/Menu.cs" type="Script" id=18]
+[ext_resource path="res://Classes/Battle/BattleMenu.cs" type="Script" id=18]
 [ext_resource path="res://Classes/Battle/BattleEnemies.cs" type="Script" id=19]
 [ext_resource path="res://Classes/Battle/BattleButtons.cs" type="Script" id=20]
 

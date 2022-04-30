@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Menu : Node2D
+public class BattleMenu : Node2D
 {
     // 主节点
     public BattleButtons Buttons {
