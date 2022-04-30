@@ -18,8 +18,8 @@
 [ext_resource path="res://Classes/Battle/HpName.cs" type="Script" id=16]
 [ext_resource path="res://Classes/Battle/Battle.cs" type="Script" id=17]
 [ext_resource path="res://Classes/Battle/Menu.cs" type="Script" id=18]
-[ext_resource path="res://Classes/Battle/Buttons.cs" type="Script" id=19]
-[ext_resource path="res://Classes/Battle/Enemies.cs" type="Script" id=20]
+[ext_resource path="res://Classes/Battle/BattleEnemies.cs" type="Script" id=19]
+[ext_resource path="res://Classes/Battle/BattleButtons.cs" type="Script" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -75,14 +75,14 @@ current = true
 [node name="Modulate" type="CanvasModulate" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
-script = ExtResource( 20 )
+script = ExtResource( 19 )
 
 [node name="Menu" type="Node2D" parent="."]
 script = ExtResource( 18 )
 
 [node name="Buttons" type="Node2D" parent="Menu"]
 position = Vector2( 95, 455 )
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 
 [node name="Fight" type="AnimatedSprite" parent="Menu/Buttons"]
 frames = SubResource( 1 )
