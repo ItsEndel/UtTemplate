@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class EnemiesNode : Node2D
+public class BattleEnemies : Node2D
 {
     // 主节点
     public Enemy[] Enemies {

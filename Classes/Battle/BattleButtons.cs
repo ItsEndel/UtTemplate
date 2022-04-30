@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Buttons : Node2D
+public class BattleButtons : Node2D
 {
     // 主节点
     private AnimatedSprite _fightButton;
