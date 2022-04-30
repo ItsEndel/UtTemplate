@@ -19,6 +19,12 @@ public class BattleButtons : Node2D
         }
     }
     private int _selected = 0;
+    public int LastSelected {
+        get {
+            return _lastSelected;
+        }
+    }
+    private int _lastSelected = 0;
 
     // 选择按钮方法
     public void Select(int selected) {
@@ -29,6 +35,7 @@ public class BattleButtons : Node2D
                 _actButton.Frame = 0;
                 _itemButton.Frame = 0;
                 _mercyButton.Frame = 0;
+                _lastSelected = selected;
                 break;
             }
             case 1: {
@@ -36,6 +43,7 @@ public class BattleButtons : Node2D
                 _actButton.Frame = 1;
                 _itemButton.Frame = 0;
                 _mercyButton.Frame = 0;
+                _lastSelected = selected;
                 break;
             }
             case 2: {
@@ -43,6 +51,7 @@ public class BattleButtons : Node2D
                 _actButton.Frame = 0;
                 _itemButton.Frame = 1;
                 _mercyButton.Frame = 0;
+                _lastSelected = selected;
                 break;
             }
             case 3: {
@@ -50,6 +59,7 @@ public class BattleButtons : Node2D
                 _actButton.Frame = 0;
                 _itemButton.Frame = 0;
                 _mercyButton.Frame = 1;
+                _lastSelected = selected;
                 break;
             }
             default: {
